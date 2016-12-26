@@ -13,7 +13,7 @@ def run_random_forest():
 
     # Initialize the model
     rf_model = RandomForestClassifier(n_estimators=1000, max_features=2, oob_score=True)
-    features = ["Gender","Pclass","SibSp","Age*Class","Fare"]
+    features = ["Gender","Pclass", "Age*Class"]
 
     # Train the model
     rf_model.fit(X=train_df[features], y=train_df["Survived"])
