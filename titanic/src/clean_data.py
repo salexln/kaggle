@@ -72,6 +72,12 @@ def clean_data(df):
     # Aartificial feature could incorporate whatever predictive power might be available from both Age and Pclass by multiplying them.
     df['Age*Class'] = df.AgeFill * df.Pclass
 
+
+    #find avarage Fair:
+    mean_fare = df['Fare'].mean()
+    df['Fare']=df['Fare'].fillna(mean_fare)
+
+
     # print df.head()
     # print df.dtypes[df.dtypes.map(lambda x: x=='object')]
 
