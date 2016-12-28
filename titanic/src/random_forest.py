@@ -13,10 +13,12 @@ def run_random_forest():
 
     # Initialize the model
     rf_model = RandomForestClassifier(n_estimators=1000, max_features=2, oob_score=True)
-    features = ["Gender","Pclass", "Age*Class"]
+    # features = ["Gender","Pclass", "Age*Class"]
+    features = ['Gender', 'AgeFill', 'Fare', 'Pclass']
 
     # Train the model
-    rf_model.fit(X=train_df[features], y=train_df["Survived"])
+    # rf_model.fit(X=train_df[features], y=train_df['Survived'])
+    rf_model.fit(X=train_df, y=train_df['Survived'])
     print("OOB accuracy: ")
     print(rf_model.oob_score_)
 
@@ -29,7 +31,8 @@ def run_random_forest():
     titanic_test = cd.clean_data(titanic_test)
 
 
-    test_preds = rf_model.predict(X= titanic_test[features])
+    # test_preds = rf_model.predict(X= titanic_test[features])
+    test_preds = rf_model.predict(X= titanic_test)
 
 
     # Create a submission for Kaggle

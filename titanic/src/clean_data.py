@@ -57,7 +57,7 @@ def clean_data(df):
     for i in range(0, 2):
         for j in range(0, 3):
             df.loc[ (df.Age.isnull()) & (df.Gender == i) & (df.Pclass == j+1),\
-                'AgeFill'] = median_ages[i,j]
+                'AgeFill'] = 1 #median_ages[i,j]
 
 
     # print df[ df['Age'].isnull() ][['Gender','Pclass','Age','AgeFill']].head(10)
